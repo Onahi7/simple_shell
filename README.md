@@ -1,4 +1,4 @@
-** Project Overview** 
+##** Project Overview** 
 
 This project focuses on creating a command-line interpreter that resembles Unix, also known as a "shell." The main goal is to build a straightforward, fully functional "shell" from the ground up. Users will be able to interact with their operating system, run commands, and manage different system calls using this shell.
 

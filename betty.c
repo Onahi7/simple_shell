@@ -1,47 +1,42 @@
-/* Include libraries in alphabetical order */
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Global constants in UPPERCASE */
-#define MAX_SIZE 100 
-
-/* Function prototypes */ 
-void print_array(int *array, size_t size);
+#define MAX_ARRAY_SIZE 100
 
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
+ * print_array -  this Prints the entire array.
+ * @array: The integer array to be printed.
+ * @array_size: The size of the array.
  */
-int main(void)
+void print_entire_array(int *array, size_t array_size);
+
+/**
+ * main - Entry point of the program.
+ * Return: Always 0 (Success).
+ */
+int main(void) 
 {
-        /* Local variables start with _ */
-        int _array[MAX_SIZE];
-        size_t _i;
+    int our_array[MAX_ARRAY_SIZE];
+    size_t i;
 
-        /* Initialize array */
-        for (_i = 0; _i < MAX_SIZE; _i++)
-        {
-                _array[_i] = _i;
-        }
+    for (i = 0; i < MAX_ARRAY_SIZE; i++) 
+    {
+        our_array[i] = i; 
+    }
 
-        print_array(_array, MAX_SIZE);
+    print_entire_array(our_array, MAX_ARRAY_SIZE);
 
-        return (0);
+    return (0); 
 }
 
 /**
- * print_array - Prints an array of integers
- *
- * @array: The array to be printed
- * @size: Number of elements in @array
+ * print_array -  this will Print the entire r array.
+ * @array: The integer array to be printed.
+ * @array_size: The size of the array.
  */
-void print_array(int *array, size_t size)
+void print_entire_array(int *array, size_t array_size)
 {
-        size_t _i;
+    size_t i;
 
-        for (_i = 0; _i < size; _i++)
-        {
-                printf("%d\n", array[_i]); 
-        }
+    for (i = 0; i < array_size; i++)
 }

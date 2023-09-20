@@ -31,12 +31,4 @@ int main(void)
 
 /**
  * print_array -  this will Print the entire r array.
- * @array: The integer array to be printed.
- * @array_size: The size of the array.
- */
-void print_entire_array(int *array, size_t array_size)
-{
-    size_t i;
-
-    for (i = 0; i < array_size; i++)
-}
+ * @array: The

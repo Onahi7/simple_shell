@@ -1,34 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#define MAX_ARRAY_SIZE 100
+#include "shell.h"
 
 /**
- * print_array -  this Prints the entire array.
- * @array: The integer array to be printed.
- * @array_size: The size of the array.
+ * main - entry point for application
+ * @ac: argument count
+ * @av: argument vector
+ * Return: 0 on success
  */
-void print_entire_array(int *array, size_t array_size);
-
-/**
- * main - Entry point of the program.
- * Return: Always 0 (Success).
- */
-int main(void) 
+int main(int ac, char **av)
 {
-    int our_array[MAX_ARRAY_SIZE];
-    size_t i;
-
-    for (i = 0; i < MAX_ARRAY_SIZE; i++) 
-    {
-        our_array[i] = i; 
-    }
-
-    print_entire_array(our_array, MAX_ARRAY_SIZE);
-
-    return (0); 
+	config build;
+	(void)ac;
+	signal(SIGINT, handle_sigint);
+	config_init(&build);
+	build.shell_name = av[0];
+	shell(&build);
+	return (0);
 }
 
 /**
  * print_array -  this will Print the entire r array.
  * @array: The
+ * config_init - initialize member values for config struct
+ * @build: input build
+ *
+ * Description: Accepts structured input commnad, and finds the right
+ * configuration to execute from the built-in configurations.
+ * Return: build with initialized members
+ */
+config *config_init(config *build)
+{
+	build->env = generateLinkedList(environ);
+	build->env_list = NULL;
+	build->args = NULL;
+	build->buffer = NULL;
+	build->path = _getenv("PATH", environ);
+	build->full_path = NULL;
+	build->count_line = 0;
+	build->shell_name = NULL;
+	build->error_status = 0;
+	return (build);
+}

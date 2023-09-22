@@ -15,16 +15,16 @@ void copy_string(char *dest, char *src)
 {
 	int length = 0, counter = 0;
 
-	while (source[length] != '\0')
+	while (src[length] != '\0')
 	{
 		length++;
 	}
 
 	while (counter < length)
 	{
-		destination[counter] = source[counter];
+		dest[counter] = source[counter];
 		counter++;
 	}
-	destination[counter] = '\0';
+	dest[counter] = '\0';
 
 }

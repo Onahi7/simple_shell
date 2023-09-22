@@ -12,7 +12,7 @@ int str_size(char *str)
 {
 	int i = 0;
 
-	while (string[i] != '\0')
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }

@@ -38,7 +38,7 @@ int simple_shell(int argc, char *argv[])
 		}
 		arguments[argc] = NULL;
 		if (argc != 0)
-			ret_value = check_command(arguments, argv, state);
+			ret_value = parse_input(arguments, argv, state);
 	}
 
 	free(command);

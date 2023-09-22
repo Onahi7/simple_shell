@@ -15,11 +15,11 @@ char *string_clone(char *str)
 	int length = 0, i = 0;
 	char *new_string;
 
-	if (string == NULL)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
-	while (string[length] != '\0')
+	while (str[length] != '\0')
 	{
 		length++;
 	}
@@ -32,7 +32,7 @@ char *string_clone(char *str)
 
 	while (i < length)
 	{
-		new_string[i] = string[i];
+		new_string[i] = str[i];
 		i++;
 	}
 

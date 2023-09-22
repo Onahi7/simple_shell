@@ -22,17 +22,17 @@ char *find_exec(char *executable, char *fullpath)
 	{
 		return (NULL);
 	}
-	copy = _strdup(path);
+	copy = string_clone(path);
 	if (copy == NULL)
 	{
 		return (NULL);
 	}
-	token = _strtok(copy, ":");
+	token = tokenizeString(copy, ":");
 	while (token != NULL)
 	{
-		_strcpy(fullpath, token);
-		_strcat(fullpath, "/");
-		_strcat(fullpath, executable);
+		copy_string(fullpath, token);
+		join_string(fullpath, "/");
+		join_string(fullpath, executable);
 		if (stat(fullpath, &store) == 0 && access(fullpath, X_OK) == 0)
 		{
 			free(copy);
@@ -41,11 +41,11 @@ char *find_exec(char *executable, char *fullpath)
 		if (stat(fullpath, &store) == 0 && access(fullpath, X_OK) == -1)
 		{
 			free(copy);
-			write(1, executable, _strlen(executable));
+			write(1, executable, str_size(executable));
 			write(1, ": No such file or directory\n", 28);
 			return (NULL);
 		}
-		token = _strtok(NULL, ":");
+		token = tokenizeString(NULL, ":");
 	}
 	free(copy);
 	return (NULL);

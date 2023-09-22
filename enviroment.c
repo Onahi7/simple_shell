@@ -15,7 +15,7 @@ int enviroment_print(char **arguments)
 	(void)arguments;
 	for (; *env != NULL; env++)
 	{
-		write(1, *env, _strlen(*env));
+		write(1, *env, strlen(*env));
 		write(1, "\n", 1);
 	}
 	return (0);

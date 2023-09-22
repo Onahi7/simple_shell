@@ -10,7 +10,7 @@
  * Returns 0 on success, non-zero value on error
  */
 
-int simple_shell(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int ret_value = 0;
 	inform state[] = {INIT};

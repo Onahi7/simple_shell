@@ -14,10 +14,10 @@ int match_strings(char *s1, char *s2)
 {
 	int i = 0;
 
-	while (string1[i] != '\0' && string2[i] != '\0')
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-		if (string1[i] != string2[i])
-			return (string1[i] - string2[i]);
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
 

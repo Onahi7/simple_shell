@@ -48,6 +48,7 @@ int match_strings(char *s1, char *s2);
 int parse_input(char **arguments, char **argv, inform *state);
 int shell_exit(char **arguments, inform *state, char **argv);
 int terminal_exit(char **arguments, inform *state, char **argv);
+int check_command(char **arguments, char **argv, inform *state);
 int simple_shell(int argc, char *argv[]);
 int str_size(char *str);
 char *find_exe(char *executable, char *fullpath);

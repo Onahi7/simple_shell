@@ -18,18 +18,18 @@ int parse_input(char **arguments, char **argv, inform *state)
 
 	for (i = 0; m[i].command; i++)
 	{
-		if (_strcmp(arguments[0], m[i].command) == 0)
+		if (match_strings(arguments[0], m[i].command) == 0)
 		{
 			return (m[i].fun(arguments, state, argv));
 		}
 	}
 	pat = getenv("PATH");
-	cop = _strdup(pat);
+	cop = string_clone(pat);
 	if (!cop && arguments[0][0] != '/')
 	{
-		write(2, argv[0], _strlen(argv[0]));
+		write(2, argv[0], str_size(argv[0]));
 		write(2, ": 1: ", 5);
-		write(2, arguments[0], _strlen(arguments[0]));
+		write(2, arguments[0], str_size(arguments[0]));
 		write(2, ": not found\n", 12);
 		state->status = 127;
 	}
@@ -42,9 +42,9 @@ int parse_input(char **arguments, char **argv, inform *state)
 			execute(result, arguments, argv, state);
 		else
 		{
-			write(2, argv[0], _strlen(argv[0]));
+			write(2, argv[0], str_size(argv[0]));
 			write(2, ": 1: ", 5);
-			write(2, arguments[0], _strlen(arguments[0]));
+			write(2, arguments[0], str_size(arguments[0]));
 			write(2, ": not found\n", 12);
 			state->status = 127;
 		}

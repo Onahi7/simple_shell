@@ -22,7 +22,7 @@ void copy_string(char *dest, char *src)
 
 	while (counter < length)
 	{
-		dest[counter] = source[counter];
+		dest[counter] = src[counter];
 		counter++;
 	}
 	dest[counter] = '\0';

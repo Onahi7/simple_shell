@@ -20,7 +20,7 @@ int simple_shell(int argc, char *argv[])
 	size_t buf_no = 0;
 	char *token, *delimiter = " \n\t";
 
-	signal(SIGINT, sa_handler);
+	signal(SIGINT, signal_han);
 	while (ret_value != -3)
 	{
 		interact = interactive();

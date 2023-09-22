@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <signal.h>
 #define MAX_ARGS 64
 
 /**
@@ -15,11 +16,11 @@ int simple_shell(int argc, char *argv[])
 	inform state[] = {INIT};
 	int interact;
 	char *command = NULL;
-	char *arguments[64];
+	char *arguments[MAX_ARGS];
 	size_t buf_no = 0;
 	char *token, *delimiter = " \n\t";
 
-	signal(SIGINT, signal_han);
+	signal(SIGINT, sa_handler);
 	while (ret_value != -3)
 	{
 		interact = interactive();
@@ -27,13 +28,13 @@ int simple_shell(int argc, char *argv[])
 			write(1, "$ ", 2);
 		if (getline(&command, &buf_no, stdin) == -1)
 			break;
-		token = _strtok(command, delimiter);
+		token = tokenizeString(command, delimiter);
 		argc = 0;
 
-		while ((token != NULL) & (argc < MAX_ARGS))
+		while ((token != NULL) && (argc < MAX_ARGS))
 		{
 			arguments[argc++] = token;
-			token = _strtok(NULL, delimiter);
+			token = tokenizeString(NULL, delimiter);
 		}
 		arguments[argc] = NULL;
 		if (argc != 0)

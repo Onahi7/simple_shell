@@ -8,7 +8,7 @@ void print_hello(void)
         char *message = "Hello, Betty!";
 
         /* Print the message */
-        printf("%s\n", message);
+        write("%s\n", message);
 }
 
 /**

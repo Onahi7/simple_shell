@@ -11,7 +11,7 @@
 */
 int parse_input(char **arguments, char **argv, inform *state)
 {
-	c_t m[] = {{"env", enviroment_print}, {"exit", terminal_exit}, {NULL, NULL}};
+	c_t m[] = {{"env", enviroment_print}, {"exit", shell_exit}, {NULL, NULL}};
 	int i;
 	char *result, *pat, *cop, fullpath[MAX_LEN];
 	struct stat buf;

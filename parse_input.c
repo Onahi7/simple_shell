@@ -37,7 +37,7 @@ int parse_input(char **arguments, char **argv, inform *state)
 		execute(arguments[0], arguments, argv, state);
 	else
 	{
-		result = find_exe(arguments[0], fullpath);
+		result = find_exec(arguments[0], fullpath);
 		if (result != NULL)
 			execute(result, arguments, argv, state);
 		else

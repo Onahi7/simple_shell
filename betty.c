@@ -1,3 +1,5 @@
+#include <unistd.h>
+
 /**
  * print_hello - Prints "Hello, Betty!" to the standard output.
  *
@@ -5,10 +7,11 @@
  */
 void print_hello(void)
 {
-        char *message = "Hello, Betty!";
+    char *message = "Hello, Betty!";
+    size_t message_length = 12;  // Length of the message including the null terminator '\0'
 
-        /* Print the message */
-        write("%s\n", message);
+    /* Write the message to standard output (stdout) */
+    write(STDOUT_FILENO, message, message_length);
 }
 
 /**
@@ -21,8 +24,8 @@ void print_hello(void)
  */
 int main(void)
 {
-	/* Call the print_hello function */
-	print_hello();
+    /* Call the print_hello function */
+    print_hello();
 
-	return (0);
+    return (0);
 }

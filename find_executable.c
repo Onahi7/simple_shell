@@ -31,8 +31,8 @@ char *find_exec(char *executable, char *fullpath)
 	while (token != NULL)
 	{
 		copy_string(fullpath, token);
-		join_string(fullpath, "/");
-		join_string(fullpath, executable);
+		join_strings(fullpath, "/");
+		join_strings(fullpath, executable);
 		if (stat(fullpath, &store) == 0 && access(fullpath, X_OK) == 0)
 		{
 			free(copy);

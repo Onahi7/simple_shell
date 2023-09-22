@@ -51,7 +51,6 @@ int terminal_exit(char **arguments, inform *state, char **argv);
 int check_command(char **arguments, char **argv, inform *state);
 int simple_shell(int argc, char *argv[]);
 int str_size(char *str);
-char *find_exe(char *executable, char *fullpath);
 char *string_clone(char *str);
 int string_to_int(char *str);
 char *tokenizeString(char *str, const char *delimiters);

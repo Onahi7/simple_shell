@@ -42,6 +42,7 @@ char *find_char(char *s, char c);
 char *find_exec(char *executable, char *fullpath);
 void handler(int sig);
 int interactive(void);
+void signal_han(int sig);
 void join_strings(char *destination, const char *src);
 int match_strings(char *s1, char *s2);
 int parse_input(char **arguments, char **argv, inform *state);

@@ -1,76 +1,53 @@
 #include "shell.h"
+#define MAX_ARGS 64
 
 /**
- * main - Simple shell
+ * main - Entry point for the shell program
+ * @argc: Number of arguments passed through command line
+ * @argv: Array of arguments passed through command line
  *
- * Return: Always 0.
+ * Returns 0 on success, non-zero value on error
  */
-int main(void)
+
+int simple_shell(int argc, char *argv[])
 {
-    char input[MAX_INPUT_SIZE];
-    char prompt[] = "$ ";
+	int ret_value = 0;
+	inform state[] = {INIT};
+	int interact;
+	char *command = NULL;
+	char *arguments[64];
+	size_t buf_no = 0;
+	char *token, *delimiter = " \n\t";
 
-    while (1)
-    {
-        if (write(STDOUT_FILENO, prompt, sizeof(prompt) - 1) == -1)
-        {
-            perror("write");
-            _exit(EXIT_FAILURE);
-        }
-        if (!fgets(input, sizeof(input), stdin))
-        {
-            if (feof(stdin))
-            {
-                /* End of file (Ctrl+D) condition */
-                if (write(STDOUT_FILENO, "\nShell terminated.\n", 19) == -1)
-                    perror("write");
-                break;
-            }
-            else
-            {
-                perror("fgets");
-                _exit(EXIT_FAILURE);
-            }
-        }
+	signal(SIGINT, signal_han);
+	while (ret_value != -3)
+	{
+		interact = interactive();
+		if (interact)
+			write(1, "$ ", 2);
+		if (getline(&command, &buf_no, stdin) == -1)
+			break;
+		token = _strtok(command, delimiter);
+		argc = 0;
 
-        /* Remove the trailing newline character */
-        size_t len = strlen(input);
-        if (len > 0 && input[len - 1] == '\n')
-        {
-            input[len - 1] = '\0';
-        }
+		while ((token != NULL) & (argc < MAX_ARGS))
+		{
+			arguments[argc++] = token;
+			token = _strtok(NULL, delimiter);
+		}
+		arguments[argc] = NULL;
+		if (argc != 0)
+			ret_value = check_command(arguments, argv, state);
+	}
 
-        if (strcmp(input, "exit") == 0)
-        {
-            break;  /* Exit the shell */
-        }
-
-        pid_t pid = fork();
-
-        if (pid == 0)
-        {
-            /* Child process */
-            char *argv[] = {input, NULL};
-            execve(input, argv, NULL);
-            perror("execve");
-            _exit(EXIT_FAILURE);
-        }
-        else if (pid < 0)
-        {
-            perror("fork");
-            _exit(EXIT_FAILURE);
-        }
-        else
-        {
-            /* Parent process */
-            int status;
-            if (waitpid(pid, &status, 0) == -1)
-            {
-                perror("waitpid");
-                _exit(EXIT_FAILURE);
-            }
-        }
-    }
-
-    return (0);
+	free(command);
+	if (!interactive() && state->status)
+		exit(state->status);
+	if (ret_value == -3)
+	{
+		if (state->exit_num == -1)
+			exit(state->status);
+		exit(state->exit_num);
+	}
+	return (0);
 }

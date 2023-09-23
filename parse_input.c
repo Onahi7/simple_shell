@@ -5,7 +5,7 @@
  * parse_input - Parse input command and arguments
  * @arguments: Array of command and arguments
  * @argv: Argument array from main
- * @state: Pointer to status code 
+ * @state: Pointer to status code
  *
  * Returns: Status code
 */

@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * copy_string - Copy a string 
+ * copy_string - Copy a string
  * @dest: Destination buffer for copied string
  * @src: Source string to copy
  *
- * Copies the source string into the destination 
+ * Copies the source string into the destination
  * buffer. Includes the null terminator.
  * Destination buffer must be large enough to hold
  * the entire source string.

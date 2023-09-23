@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	signal(SIGINT, handler);
 	while (ret_value != -3)
 	{
-		interact = interactive();
+		interact = inter();
 		if (interact)
 			write(1, "$ ", 2);
 		if (getline(&command, &buf_no, stdin) == -1)
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 	}
 
 	free(command);
-	if (!interactive() && state->status)
+	if (!inter() && state->status)
 		exit(state->status);
 	if (ret_value == -3)
 	{

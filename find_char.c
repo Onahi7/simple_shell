@@ -4,8 +4,8 @@
  * find_char - Find first occurrence of a character in string
  * @s: Pointer to string to search
  * @c: Character to find
- * 
- * Returns pointer to first instance of c in s, 
+ *
+ * Returns pointer to first instance of c in s,
  * or NULL if character not found.
 */
 

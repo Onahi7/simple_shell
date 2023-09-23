@@ -3,7 +3,7 @@
 
 /**
  * string_to_int - converts string to integer
- * @string: pointer to string
+ * @str: pointer to string
  *
  * Return: converted integer
  */

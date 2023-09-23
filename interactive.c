@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * interactive - check for interactive
+ * inter: check for interactive
  *
  * Return: 1 or 0.
  */

@@ -4,7 +4,7 @@
  * str_size - Get the size of a string
  * @str: String to get size of
  *
- * Returns number of characters in string excluding
+ * Return: number of characters in string excluding
  * null terminator.
 */
 

@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * join_strings - Join two strings together 
+ * join_strings - Join two strings together
  * @dest: Destination string
  * @src: Source string to append to dest
  *

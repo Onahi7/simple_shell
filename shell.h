@@ -47,7 +47,7 @@ int match_strings(char *s1, char *s2);
 int parse_input(char **arguments, char **argv, inform *state);
 int shell_exit(char **arguments, inform *state, char **argv);
 int terminal_exit(char **arguments, inform *state, char **argv);
-int simple_shell(int argc, char *argv[]);
+int main(int argc, char *argv[]);
 int str_size(char *str);
 char *string_clone(char *str);
 int string_to_int(char *str);

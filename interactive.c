@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * interactive - Check if the shell is running in interactive mode.
+ * inter - Check if the shell is running in interactive mode.
  *
- * Inter: function checks whether the shell is running in interactive mode, which
+ * Inter: function checks whether the shell is running in interactive mode
  * is typically determined by whether it is connected to a terminal.
  *
  * Return:

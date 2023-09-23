@@ -3,7 +3,7 @@
 /**
  * interactive - Check if the shell is running in interactive mode.
  *
- * This function checks whether the shell is running in interactive mode, which
+ * Inter: function checks whether the shell is running in interactive mode, which
  * is typically determined by whether it is connected to a terminal.
  *
  * Return:

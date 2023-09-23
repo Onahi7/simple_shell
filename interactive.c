@@ -5,7 +5,7 @@
  *
  * Return: 1 or 0.
  */
-int interactive(void)
+int inter(void)
 {
 	return (isatty(STDIN_FILENO));
 }

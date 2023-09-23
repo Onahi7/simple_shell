@@ -2,7 +2,7 @@
 
 /**
  * match_strings - Check if two strings match exactly
- * @s1: First string 
+ * @s1: First string
  * @s2: Second string
  *
  * Compares string s1 and s2 character by character.
@@ -10,7 +10,7 @@
  * Returns difference of first non-matching character otherwise.
 */
 
-int match_strings(char *s1, char *s2) 
+int match_strings(char *s1, char *s2)
 {
 	int i = 0;
 

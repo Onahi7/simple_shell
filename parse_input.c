@@ -7,7 +7,7 @@
  * @argv: Argument array from main
  * @state: Pointer to status code
  *
- * Returns: Status code
+ * Return: Status code
 */
 int parse_input(char **arguments, char **argv, inform *state)
 {

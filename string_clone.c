@@ -7,7 +7,7 @@
  * Allocates memory for a copy of the string, copies
  * the characters to the new memory, and returns the
  * pointer to the cloned string.
- * Returns NULL if insufficient memory.
+ * Return: NULL if insufficient memory.
 */
 
 char *string_clone(char *str)

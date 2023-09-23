@@ -6,7 +6,7 @@
  * @s2: Second string
  *
  * Compares string s1 and s2 character by character.
- * Returns 0 if all characters match.
+ * Return: 0 if all characters match.
  * Returns difference of first non-matching character otherwise.
 */
 
